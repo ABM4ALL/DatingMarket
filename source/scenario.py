@@ -36,7 +36,6 @@ class DatingScenario(Scenario):
         self.prob_seek = load_tdict("Data_Prob_Seek.xlsx")
 
     def setup_data(self):
-        # print("setup_data")
         self.setup_man_params()
         self.setup_woman_params()
 
@@ -47,10 +46,8 @@ class DatingScenario(Scenario):
         return [num / total for num in random_numbers]
 
     def setup_man_params(self):
-        # print("setup_men_params")
         l = []
         for id_man in range(0, self.man_num):
-            # print(f'id_man = {id_man}')
             s1, s2, s3 = self.gen_shares_and_weights()
             w1, w2, w3 = self.gen_shares_and_weights()
             l.append({
