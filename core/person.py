@@ -2,11 +2,11 @@ from typing import TYPE_CHECKING
 
 from Melodie import Agent
 
-from source.tabkey import DatingTabKey
-from source.utils import dict_sample
+from utils.funcs import dict_sample
+from utils.tabkey import DatingTabKey
 
 if TYPE_CHECKING:
-    from source.scenario import DatingScenario
+    from core.scenario import DatingScenario
 
 
 class Person(Agent):

@@ -3,9 +3,9 @@ import os
 from Melodie import Config
 from Melodie import Simulator
 
-from source.analyzer import DatingAnalyzer
-from source.model import DatingMarketModel
-from source.scenario import DatingScenario
+from utils.analyzer import DatingAnalyzer
+from core.model import DatingMarketModel
+from core.scenario import DatingScenario
 
 
 def run_model(config):

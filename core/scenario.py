@@ -1,6 +1,6 @@
-import os.path
-from typing import Optional
 import random
+from typing import Optional
+
 import pandas as pd
 from Melodie import Scenario
 from tab2dict import TabDict

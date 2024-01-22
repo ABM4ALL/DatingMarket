@@ -1,7 +1,7 @@
 import os
 
-from Melodie import DataCollector
 import pandas as pd
+from Melodie import DataCollector
 
 
 class DatingDataCollector(DataCollector):

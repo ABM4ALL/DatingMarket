@@ -1,11 +1,11 @@
-import os.path
 from typing import TYPE_CHECKING
 
 from Melodie import Model
-from source.person import Person
-from source.data_collector import DatingDataCollector
-from source.environment import DatingEnvironment
-from source.scenario import DatingScenario
+
+from core.data_collector import DatingDataCollector
+from core.environment import DatingEnvironment
+from core.person import Person
+from core.scenario import DatingScenario
 
 if TYPE_CHECKING:
     from Melodie import AgentList

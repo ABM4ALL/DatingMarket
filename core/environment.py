@@ -1,7 +1,8 @@
-from Melodie import Environment
 from Melodie import AgentList
-from source.person import Person
-from source.scenario import DatingScenario
+from Melodie import Environment
+
+from core.person import Person
+from core.scenario import DatingScenario
 
 
 class DatingEnvironment(Environment):
