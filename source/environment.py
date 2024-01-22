@@ -13,7 +13,8 @@ class DatingEnvironment(Environment):
         self.s3 = 0
         self.s4 = 0
 
-    def agents_setup_tkey(self, agents: "AgentList[Person]"):
-        for agent in agents:
-            agent.setup_tkey()
+    def persons_setup_tkey(self, persons: "AgentList[Person]"):
+        for person in persons:
+            person.setup_tkey()
+
 

@@ -4,7 +4,6 @@ from Melodie import Config
 from Melodie import Simulator
 
 from source.analyzer import DatingAnalyzer
-from source.data_loader import CovidDataLoader
 from source.model import DatingMarketModel
 from source.scenario import DatingScenario
 
@@ -13,8 +12,7 @@ def run_model(config):
     simulator = Simulator(
         config=config,
         model_cls=DatingMarketModel,
-        scenario_cls=DatingScenario,
-        data_loader_cls=CovidDataLoader
+        scenario_cls=DatingScenario
     )
     simulator.run()
 
@@ -33,6 +31,6 @@ if __name__ == "__main__":
         output_folder="data/output",
     )
     run_model(cfg)
-    run_analyzer(cfg)
+    # run_analyzer(cfg)
 
 
