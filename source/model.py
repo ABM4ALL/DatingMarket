@@ -21,7 +21,6 @@ class DatingMarketModel(Model):
         self.data_collector: DatingDataCollector = self.create_data_collector(DatingDataCollector)
 
     def setup(self):
-        self.scenario.setup_data()
         self.data_collector.save_dataframe(df=self.scenario.man_params, df_name="man_params", if_exists="append")
         self.data_collector.save_dataframe(df=self.scenario.woman_params, df_name="woman_params", if_exists="append")
         self.men.setup_agents(
