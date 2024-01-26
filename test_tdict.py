@@ -1,7 +1,9 @@
-from tab2dict import TabDict
-from utils.tabkey import DatingTabKey
 import os
+
 import pandas as pd
+from tab2dict import TabDict
+
+from utils.tabkey import DatingTabKey
 
 
 def load_tdict_file(file_name: str, col: str = "value"):

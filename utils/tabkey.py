@@ -1,5 +1,6 @@
-from tab2dict import TabKey
 from typing import Optional
+
+from tab2dict import TabKey
 
 
 class DatingTabKey(TabKey):

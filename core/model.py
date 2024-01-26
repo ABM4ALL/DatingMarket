@@ -1,7 +1,8 @@
 from typing import TYPE_CHECKING
 
-from Melodie import Model
 import pandas as pd
+from Melodie import Model
+
 from core.data_collector import DatingDataCollector
 from core.environment import DatingEnvironment
 from core.person import Person
