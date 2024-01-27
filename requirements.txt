@@ -1,0 +1,2 @@
+Melodie==0.9.0a0
+tab2dict==0.0.3
