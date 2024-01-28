@@ -14,12 +14,15 @@ class Person(Agent):
     scenario: "DatingScenario"
 
     def setup(self):
+        # params --> initialized with the `man_params` or `women_params` dataframes created in the `scenario`.
         self.id_gender: int = 0
         self.share_social: float = 0.0
         self.share_saving: float = 0.0
         self.weight_age: float = 0.0
         self.weight_saving: float = 0.0
+        # params --> initialized by environment calling `persons_setup_data`.
         self.age: int = 0
+        # variables --> changed in every period and also saved by the `data_collector`.
         self.income: float = 0.0
         self.social: float = 0.0
         self.saving: float = 0.0
