@@ -9,7 +9,6 @@ from tab2dict import TabDict
 class DatingScenario(Scenario):
 
     def setup(self):
-        self.period_num: int = 0
         self.man_num: int = 0
         self.woman_num: int = 0
         self.selector_num: int = 0
