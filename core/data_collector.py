@@ -18,9 +18,12 @@ class DatingDataCollector(DataCollector):
     def save_dataframe(self, df: pd.DataFrame, df_name: str, if_exists: str = 'append'):
         path = os.path.join(self.config.output_folder, f'{df_name}.csv')
         if os.path.isfile(path):
-            if if_exists == "replace":
+            if if_exists == "append":
+                df.to_csv(path, mode='a', header=False, index=False)
+            elif if_exists == "replace":
                 df.to_csv(path, index=False)
             else:
-                df.to_csv(path, mode='a', header=False, index=False)
+                raise NotImplementedError(f'if_exists = {if_exists} --> not implemented.')
         else:
             df.to_csv(path, index=False)
+
