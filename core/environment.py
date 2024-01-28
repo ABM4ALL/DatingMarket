@@ -47,10 +47,11 @@ class DatingEnvironment(Environment):
             candidates = self.sample_candidates(potential_candidates)
             d = {}
             for index, candidate in enumerate(candidates):
-                d[index] = selector.assess_candidate(
+                assessment = selector.assess_candidate(
                     candidate_age=candidate.age,
                     candidate_saving=candidate.saving
                 )
+                d[index] = assessment if assessment > 0 else 0
             selected_candidate = candidates[dict_sample(d)]
             assessment = selector.assess_candidate(
                     candidate_age=selected_candidate.age,
