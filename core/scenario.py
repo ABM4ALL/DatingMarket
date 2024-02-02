@@ -69,6 +69,13 @@ class DatingScenario(Scenario):
         self.man_params = pd.DataFrame(l)
 
     def setup_woman_params(self):
+        """
+        For comparison with the generation and use of `man_params`, we prepared `Params_Woman.csv` to show
+        how agent-level initialization data can be imported and used. When agents' initialization data are
+        neither scenario-dependent nor necessary-to-be randomized, we suggest using such approach.
+        Besides, users can also adapt the imported exogenous table by adding scenario-dependent columns.
+        In that case, we suggest to add also `id_scenario` and `id_run` columns as in the `man_params` above.
+        """
         self.woman_params = self.load_dataframe("Params_Woman.csv")
 
 
