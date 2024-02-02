@@ -24,7 +24,6 @@ class DatingMarketModel(Model):
     def setup(self):
         self.scenario.setup_person_params()
         self.data_collector.save_dataframe(df=self.scenario.man_params, df_name="Params_Man")
-        self.data_collector.save_dataframe(df=self.scenario.woman_params, df_name="Params_Woman")
         self.men.setup_agents(agents_num=self.scenario.man_num, params_df=self.scenario.man_params)
         self.women.setup_agents(agents_num=self.scenario.woman_num, params_df=self.scenario.woman_params)
 

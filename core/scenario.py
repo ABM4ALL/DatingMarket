@@ -69,21 +69,7 @@ class DatingScenario(Scenario):
         self.man_params = pd.DataFrame(l)
 
     def setup_woman_params(self):
-        l = []
-        for id_woman in range(0, self.woman_num):
-            share_social, share_saving = self.gen_shares()
-            weight_age, weight_saving = self.gen_weights()
-            l.append({
-                "id_scenario": self.id,
-                "id_run": self.id_run,
-                "id": id_woman,
-                "id_gender": 2,
-                "share_social": share_social,
-                "share_saving": share_saving,
-                "weight_age": weight_age,
-                "weight_saving": weight_saving
-            })
-        self.woman_params = pd.DataFrame(l)
+        self.woman_params = self.load_dataframe("Params_Woman.csv")
 
 
 
