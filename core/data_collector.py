@@ -7,9 +7,11 @@ from Melodie import DataCollector
 class DatingDataCollector(DataCollector):
 
     def setup(self):
+        self.add_agent_property(container_name="men", property_name="income_before_shock")
         self.add_agent_property(container_name="men", property_name="income")
         self.add_agent_property(container_name="men", property_name="social")
         self.add_agent_property(container_name="men", property_name="saving")
+        self.add_agent_property(container_name="women", property_name="income_before_shock")
         self.add_agent_property(container_name="women", property_name="income")
         self.add_agent_property(container_name="women", property_name="social")
         self.add_agent_property(container_name="women", property_name="saving")

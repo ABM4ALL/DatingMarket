@@ -33,6 +33,7 @@ class DatingScenario(Scenario):
         self.income_max = load_tdict("Data_Income.xlsx", col_name="max")
         self.prob_age_group = load_tdict("Data_Prob_AgeGroup.xlsx")
         self.prob_income_group = load_tdict("Data_Prob_IncomeGroup.xlsx")
+        self.income_shock = load_tdict("Data_IncomeShock.xlsx")
 
     def setup_person_params(self):
         self.setup_man_params()

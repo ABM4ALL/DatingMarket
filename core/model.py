@@ -33,6 +33,8 @@ class DatingMarketModel(Model):
         self.environment.persons_setup_data(self.women)
         for period in range(0, self.scenario.period_num):
             self.environment.reset_total_assessment()
+            self.environment.persons_update_time_period(self.women)
+            self.environment.persons_update_time_period(self.men)
             self.environment.persons_get_income(self.women)
             self.environment.persons_get_income(self.men)
             self.environment.persons_spend_income(self.women)
