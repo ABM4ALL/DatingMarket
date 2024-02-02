@@ -66,6 +66,7 @@ class DatingEnvironment(Environment):
                 "selector_id_age_group": selector.tkey.id_age_group,
                 "selector_id_income_group": selector.tkey.id_income_group,
                 "selector_age": selector.age,
+                "selector_income_before_shock": selector.income_before_shock,
                 "selector_income": selector.income,
                 "selector_social": selector.social,
                 "selector_saving": selector.saving,
@@ -76,12 +77,18 @@ class DatingEnvironment(Environment):
                 "candidate_id_age_group": selected_candidate.tkey.id_age_group,
                 "candidate_id_income_group": selected_candidate.tkey.id_income_group,
                 "candidate_age": selected_candidate.age,
+                "candidate_income_before_shock": selected_candidate.income_before_shock,
                 "candidate_income": selected_candidate.income,
                 "candidate_social": selected_candidate.social,
                 "candidate_saving": selected_candidate.saving,
                 "assessment": assessment
             })
             self.total_assessment += assessment
+
+    @staticmethod
+    def persons_update_time_period(persons: "AgentList[Person]"):
+        for person in persons:
+            person.tkey.time_period += 1
 
     def reset_total_assessment(self):
         self.total_assessment = 0

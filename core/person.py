@@ -23,6 +23,7 @@ class Person(Agent):
         # params --> initialized by environment calling `persons_setup_data`.
         self.age: int = 0
         # variables --> changed in every period and also saved by the `data_collector`.
+        self.income_before_shock: float = 0.0
         self.income: float = 0.0
         self.social: float = 0.0
         self.saving: float = 0.0
@@ -44,7 +45,7 @@ class Person(Agent):
                 d[id_income_group] = self.scenario.prob_income_group.get_item(self.tkey)
             return dict_sample(d)
 
-        self.tkey = DatingTabKey(id_gender=self.id_gender)
+        self.tkey = DatingTabKey(id_gender=self.id_gender, time_period=-1)
         self.tkey.id_age_group = setup_id_age_group()
         self.tkey.id_income_group = setup_id_income_group()
 
@@ -55,10 +56,11 @@ class Person(Agent):
         )
 
     def get_income(self):
-        self.income = random.uniform(
+        self.income_before_shock = random.uniform(
             self.scenario.income_min.get_item(self.tkey),
             self.scenario.income_max.get_item(self.tkey),
         )
+        self.income = self.income_before_shock * self.scenario.income_shock.get_item(self.tkey)
 
     def spend_income(self):
         self.social = self.income * self.share_social
