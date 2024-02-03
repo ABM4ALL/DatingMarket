@@ -9,13 +9,21 @@ from tab2dict import TabDict
 class DatingScenario(Scenario):
 
     def setup(self):
+        """
+        This function is automatically called by Melodie (i.e., the `simulator`).
+        The model-wide parameters are defined here.
+        The names must same with the columns names defined in the "SimulatorScenario.xlsx" table.
+        """
         self.man_num: int = 0
         self.woman_num: int = 0
         self.selector_num: int = 0
         self.candidate_num: int = 0
 
     def load_data(self):
-
+        """
+        This function is automatically called by Melodie (i.e., the `simulator`).
+        The input tables are loaded into `scenario` object and accessed in the model and its components.
+        """
         def load_tdict(file_name, col_name: Optional[str] = "value"):
             return TabDict.from_dataframe(
                 df=self.load_dataframe(file_name),

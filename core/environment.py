@@ -12,6 +12,10 @@ class DatingEnvironment(Environment):
     scenario: "DatingScenario"
 
     def setup(self):
+        """
+        This function is optional. If exists, it will be automatically called by Melodie (i.e., the `simulator`)
+        when setting up the `model`. Model-wide variables can be defined here and updated in the functions below.
+        """
         self.total_assessment = 0
         self.dates = []
 
@@ -20,6 +24,14 @@ class DatingEnvironment(Environment):
         for person in persons:
             person.setup_tkey()
             person.setup_age()
+
+    def reset_total_assessment(self):
+        self.total_assessment = 0
+
+    @staticmethod
+    def persons_update_time_period(persons: "AgentList[Person]"):
+        for person in persons:
+            person.tkey.time_period += 1
 
     @staticmethod
     def persons_get_income(persons: "AgentList[Person]"):
@@ -85,10 +97,3 @@ class DatingEnvironment(Environment):
             })
             self.total_assessment += assessment
 
-    @staticmethod
-    def persons_update_time_period(persons: "AgentList[Person]"):
-        for person in persons:
-            person.tkey.time_period += 1
-
-    def reset_total_assessment(self):
-        self.total_assessment = 0

@@ -7,6 +7,11 @@ from Melodie import DataCollector
 class DatingDataCollector(DataCollector):
 
     def setup(self):
+        """
+        This function is automatically called by Melodie (i.e., the `simulator`).
+        Users can define which data to be collected and saved.
+        Then, in model.run(), users can call data_collector.collect() and data_collector.save().
+        """
         self.add_agent_property(container_name="men", property_name="income_before_shock")
         self.add_agent_property(container_name="men", property_name="income")
         self.add_agent_property(container_name="men", property_name="social")
