@@ -9,21 +9,22 @@ from core.scenario import DatingScenario
 
 def run_model(config):
     """
-    By calling the `simulator.run()` function, following steps are went through:
+    By calling the `simulator.run()` function, we go through the following steps:
 
-    1. instantiate and set up the `scenario` objects
-    A set of `scenario` instances are created based on the rows in the `SimulatorScenario.xlsx` file.
-    Besides, each instance also calls its `setup` and `load_data` functions to initialize the scenario data.
+    First, based on the rows in the `SimulatorScenario.xlsx` file, Melodie will create a list of `scenario` objects.
+    At the same time, each `scenario` object also calls its `setup` and `load_data` functions.
 
-    2. instantiate and set up the `model` object
-    The `simulator` will iterate through the list of scenarios. For each scenario,
-    an overall model container is created and its three functions are called:
+    Second, for each `scenario`, Melodie will run the model.
+    So, a model object will be created with each `scenario` object, as well as other components,
+    including agent_list(s), environment, data_collector.
+    Two functions of the `model` object are called in this step:
      - model.create() --> the model components are created, including agent_list(s), environment, data_collector.
-     For each component, the `setup` function is called at the same time.
-     - model.setup() --> the model components are configured with data, especially the agent_list(s).
+     For each component, its `setup` function is also called to create the parameter/variable attributes.
+     - model.setup() --> the model components are filled in with data, especially the agent_list(s).
 
-    3. run model
-    After instantiating and setting up the scenario and model, the `simulator` calls `model.run()` to run the model.
+    Third, after instantiating and setting up the scenario and model (incl. the components),
+    the `simulator` will call `model.run()` to run the model under the current `scenario` and save the results.
+    After finishing, the `simulator` automatically starts running the next scenario.
     """
     simulator = Simulator(
         config=config,

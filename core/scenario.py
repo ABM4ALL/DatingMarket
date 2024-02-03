@@ -10,9 +10,14 @@ class DatingScenario(Scenario):
 
     def setup(self):
         """
-        This function is automatically called by Melodie (i.e., the `simulator`).
-        The model-wide parameters are defined here.
-        The names must same with the columns names defined in the "SimulatorScenario.xlsx" table.
+        This function is automatically called. The model-wide parameters are defined here.
+        The names must be same with the columns names defined in the "SimulatorScenario.xlsx" table.
+        Three columns must be included in the "SimulatorScenario.xlsx" table but not necessarily defined here:
+         - `id` --> the `id` of the `scenario`;
+         - `run_num` --> for one `scenario`, Melodie supports running the model multiple times for robustness check;
+         - `period_num` --> number of periods in one simulation.
+        These three parameters of the scenario are already defined in Melodie.
+        Their names in the "SimulatorScenario.xlsx" table must be the same.
         """
         self.man_num: int = 0
         self.woman_num: int = 0
@@ -21,8 +26,9 @@ class DatingScenario(Scenario):
 
     def load_data(self):
         """
-        This function is automatically called by Melodie (i.e., the `simulator`).
-        The input tables are loaded into `scenario` object and accessed in the model and its components.
+        This function is automatically called. Users can use `self.load_dataframe()` to import data from `data/input`.
+        The `scenario` object holds all the data loaded into the model and can be accessed in all model components.
+        In this example, the `tab2dict` package is used to further convert loaded dataframes to `tdict`s.
         """
         def load_tdict(file_name, col_name: Optional[str] = "value"):
             return TabDict.from_dataframe(
@@ -78,7 +84,7 @@ class DatingScenario(Scenario):
 
     def setup_woman_params(self):
         """
-        For comparison with the generation and use of `man_params`, we prepared `Params_Woman.csv` to show
+        To compare with the generation and use of `man_params`, we prepared `Params_Woman.csv` to show
         how agent-level initialization data can be imported and used. When agents' initialization data are
         neither scenario-dependent nor necessary-to-be randomized, we suggest using such approach.
         Besides, users can also adapt the imported exogenous table by adding scenario-dependent columns.
