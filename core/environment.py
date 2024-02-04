@@ -13,8 +13,8 @@ class DatingEnvironment(Environment):
 
     def setup(self):
         """
-        This function is optional. If exists, it will be automatically called by Melodie (i.e., the `simulator`)
-        when setting up the `model`. Model-wide variables can be defined here and updated in the functions below.
+        This function is optional. If exists, it will be automatically called when setting up the `model`.
+        Model-wide variables can be defined here and updated in the functions below.
         """
         self.total_assessment = 0
         self.dates = []
