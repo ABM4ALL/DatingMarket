@@ -45,11 +45,8 @@ if __name__ == "__main__":
     prob_income_group = load_tdict_file("Data_Prob_IncomeGroup.xlsx")
     age_min = load_tdict_df("Data_Age.xlsx", col="min")
     tkey = DatingTabKey(id_age_group=3, id_gender=1, id_income_group=2)
-    print(prob_age_group.to_dataframe())
     print(prob_age_group.get_item(tkey))
-    print(prob_income_group.to_dataframe())
     print(prob_income_group.get_item(tkey))
-    print(age_min.to_dataframe())
     print(age_min.get_item(tkey))
 
 
