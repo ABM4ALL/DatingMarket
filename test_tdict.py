@@ -21,7 +21,8 @@ Second, `tdict` works together with a `tkey`:
 
 In ABMs, each agent is assigned with a `tkey`, like an "identity" of the agent. 
 With this `tkey`, the agent can get data from the `tdict`s. The advantage is, 
-the agents usually know more than necessary in their `tkey`s for fetching data from individual `tdict`s.
+the agents usually know its "full identity" (i.e., values of all relevant `key_cols`).
+For the agent, this is more than necessary for fetching data from individual `tdict`s.
 So, users may be able to flexibly add new `id_` or `time_` columns in the input tables without changing code.
 """
 
