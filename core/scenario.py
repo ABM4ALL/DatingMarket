@@ -91,6 +91,3 @@ class DatingScenario(Scenario):
         In that case, we suggest to add also `id_scenario` and `id_run` columns as in the `man_params` above.
         """
         self.woman_params = self.load_dataframe("Params_Woman.csv")
-
-
-
