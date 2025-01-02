@@ -16,7 +16,7 @@ def run_model(config):
     More specifically, we go through the following steps:
 
     First, based on the rows in the `SimulatorScenario.xlsx` file, Melodie will create a list of `scenario` objects.
-    At the same time, each `scenario` object also calls its `setup` and `load_data` functions.
+    At the same time, each `scenario` object also calls its `setup` and `load_data` functions for self-initialization.
 
     Second, when running one `scenario`, a model object will be created, as well as its components,
     including agent_list(s), environment, data_collector.
